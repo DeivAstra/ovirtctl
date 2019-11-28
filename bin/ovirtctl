@@ -10,7 +10,7 @@ script_dir=$(dirname $(readlink -f $0))
 
 host=ovirt.host.local
 url="https://$host/ovirt-engine/api"
-user="admin@internal"
+user="SOME_USER@internal"
 password="SOME_PASSWORD"
 cacert=/etc/pki/ovirt-engine/ca.pem
 
