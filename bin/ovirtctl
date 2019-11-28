@@ -17,9 +17,8 @@ cacert=/etc/pki/ovirt-engine/ca.pem
 vms_queue_start_timeout=90
 
 declare -A vm_map
-vm_map["bar"]="0074d052-283a-44ae-8788-c50e295dde67"
-vm_map["foo"]="e9adbf1a-bbb6-4f6a-a4cb-f65ae1f97d8d"
-#vm_map["test"]="15c83421-1650-487f-a0b4-3429ebc912c6"
+#vm_map["bar"]="0074d052-283a-44ae-8788-c50e295dde67"
+#vm_map["foo"]="e9adbf1a-bbb6-4f6a-a4cb-f65ae1f97d8d"
 
 
 function do_vm_operation {
