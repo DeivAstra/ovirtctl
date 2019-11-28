@@ -4,7 +4,7 @@
 
 Warning! The script compatible with Ovirt 4.3 and was not test on other versions.
 
-Using this script, for example, you can make autostart of Ovirt VMs when OS started. Ovirt 4.3 is not supports that feature "out of the box".
+Using this script, for example, you can make autostart of Ovirt VMs when OS started. Ovirt 4.3 is not supports that feature from "out of the box".
 
 
 ```
