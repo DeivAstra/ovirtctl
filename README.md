@@ -23,7 +23,7 @@ Before use the script:
 
 ```
 Usage examples:
-	PATH=$PATH:/opt/bin/ovirtctl
+	PATH=$PATH:/opt/ovirtctl/bin
 	ovirtctl vm-start foo
 	ovirtctl vm-start bar
 	ovirtctl vm-shutdown-all
