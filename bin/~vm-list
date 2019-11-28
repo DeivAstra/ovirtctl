@@ -1,0 +1,15 @@
+#!/bin/sh
+
+url=$1
+user=$2
+password=$3
+cacert=$4
+
+curl \
+--verbose \
+--cacert "${cacert}" \
+--user "${user}:${password}" \
+--request GET \
+--header "Version: 4" \
+--header "Accept: application/xml" \
+"${url}/vms"
