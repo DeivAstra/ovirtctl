@@ -1,6 +1,6 @@
 # ovirtctl
 
-**Ovirt control script for manage VMs via REST API [http://ovirt.github.io/ovirt-engine-api-model/4.3/].**
+**Ovirt control script to manage VMs via REST API [http://ovirt.github.io/ovirt-engine-api-model/4.3/].**
 
 Warning! The script is compatible with Ovirt 4.3 and is not tested with other versions.
 
