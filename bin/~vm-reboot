@@ -1,0 +1,20 @@
+#!/bin/sh
+
+url=$1
+user=$2
+password=$3
+cacert=$4
+vm_id=$5
+
+curl \
+--verbose \
+--cacert "${cacert}" \
+--user "${user}:${password}" \
+--request POST \
+--header "Version: 4" \
+--header "Content-Type: application/xml" \
+--header "Accept: application/xml" \
+--data '
+<action/>
+' \
+"${url}/vms/$vm_id/reboot"
