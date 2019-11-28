@@ -15,9 +15,9 @@ Usage:
 
 Before using the script(except vm-list):
 1) Set variables in /bin/ovirctl: **host**, **user**, **password** which using for login to ovirt-engine Web UI.
-2) Check path of cacert variable. If correct, so no need touch.
-3) Change value of vms_queue_start_timeout variable if need. Script waiting(in seconds) before start next VM from queue.
-4) Registry to vm_map variable the VMs which will be managed by the script.
+2) Check path of **cacert variable**. If correct, so no need touch.
+3) Change value of **vms_queue_start_timeout** variable if need. Script waiting(in seconds) before start next VM from queue.
+4) Registry to **vm_map** variable the VMs which will be managed by the script.
 	For example: *vm_map["bar"]="0074d052-283a-44ae-8788-c50e295dde67"*. Where *bar* is VM name and *0074d052-283a-44ae-8788-	c50e295dde67* is VM id.
 
 ```
