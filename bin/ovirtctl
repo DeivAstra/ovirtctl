@@ -1,0 +1,68 @@
+#!/bin/sh
+
+# Ovirt engine control script
+# author: Denis Ivanchik
+
+# Ovirt engine API documentation
+# http://ovirt.github.io/ovirt-engine-api-model/4.3/
+
+script_dir=$(dirname $(readlink -f $0))
+
+host=ovirt.host.local
+url="https://$host/ovirt-engine/api"
+user="admin@internal"
+password="SOME_PASSWORD"
+cacert=/etc/pki/ovirt-engine/ca.pem
+
+vms_queue_start_timeout=90
+
+declare -A vm_map
+vm_map["bar"]="0074d052-283a-44ae-8788-c50e295dde67"
+vm_map["foo"]="e9adbf1a-bbb6-4f6a-a4cb-f65ae1f97d8d"
+#vm_map["test"]="15c83421-1650-487f-a0b4-3429ebc912c6"
+
+
+function do_vm_operation {
+	local operation=$1
+	local vm_name=$2
+	local vm_id=${vm_map["$vm_name"]}
+	echo "Starting VM: $vm_name/$vm_id"
+	$script_dir/~$operation $url $user $password $cacert $vm_id
+}
+
+function do_vm_all_operation {
+	local operation=$1
+	for vm_name in ${!vm_map[@]}
+	do
+		do_vm_operation $operation $vm_name
+		case $operation in vm-start)
+			sleep $vms_queue_start_timeout
+		esac
+	done
+}
+
+
+case $1 in
+	vm-list)
+		echo "List VMs"
+		$script_dir/~vm-list $url $user $password $cacert
+	;;
+	vm-start|vm-stop|vm-shutdown|vm-reboot|vm-suspend|vm-get)
+		do_vm_operation $1 $2
+	;;
+	vm-start-all)
+		do_vm_all_operation vm-start
+	;;
+	vm-stop-all)
+		do_vm_all_operation vm-stop
+	;;
+	vm-shutdown-all)
+		do_vm_all_operation vm-shutdown
+	;;
+	*)
+		printf "Usage: \
+		\n  vm-list \
+		\n  vm-start|vm-stop|vm-shutdown|vm-reboot|vm-suspend|vm-get name \
+		\n  vm-start-all|vm-stop-all|vm-shutdown-all\n"
+esac
+
