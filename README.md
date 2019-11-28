@@ -2,7 +2,7 @@
 
 **Ovirt control script for manage VMs through REST API[http://ovirt.github.io/ovirt-engine-api-model/4.3/].**
 
-Using this script you can make autostart of Ovirt VMs when OS started.
+Using this script, for example, you can make autostart of Ovirt VMs when OS started.
 
 Warning! This script compatible with Ovirt 4.3 and was not test on other versions.
 
